@@ -19,8 +19,6 @@ public class QueryDslStudyApplicationTests {
     @Autowired
     private AcademyRepository academyRepository;
 
-    @Autowired
-    private AcademyRepositorySupport academyRepositorySupport;
 
     @After
     public void tearDown() throws Exception {
@@ -36,7 +34,7 @@ public class QueryDslStudyApplicationTests {
         academyRepository.save(new Academy(name, address));
 
         //when
-        List<Academy> result = academyRepositorySupport.findByName(name);
+        List<Academy> result = academyRepository.findByName(name);
 
         //then
         for(Academy academy : result){
